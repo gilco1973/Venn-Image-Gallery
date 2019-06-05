@@ -8,6 +8,7 @@ import { ImagesProviderService } from './images-provider.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from './request-interceptor.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     NgxSpinnerModule,
     BrowserAnimationsModule
   ],
