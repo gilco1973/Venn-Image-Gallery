@@ -5,3 +5,16 @@
     transform: translate(-50%,-50%);
     font-size: 3rem;
 }
+.gallery-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.img-container{
+    flex: 1;
+    img{
+        margin:4px;
+        width:150px; 
+        height:150px;
+        border: 3px solid gray;
+    }
+ }

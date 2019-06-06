@@ -11,19 +11,26 @@ export class GalleryComponent implements OnInit {
 
   headerTxt: string = 'Image Gallery';
   photos: any;
+  currentPage: number = 1;
   searchTerm: string;
+  photosPerPage: any;
   constructor(private imagesProvider: ImagesProviderService) { }
 
   ngOnInit() {
     this.searchImages();
   }
   searchImages() {
-    this.imagesProvider.getPhotos(this.searchTerm).subscribe(data => {
-      this.photos = data;
-      console.log(this.photos);
-    });
-    
-  }
-  
+    this.imagesProvider.getPhotos(this.searchTerm, this.currentPage).then((result: any) => {
+      console.log('Page number: ' + result.photos.page);
+      this.photosPerPage = result.photos.perpage;
+      const rawData: any[] = result.photos.photo;
 
+      this.photos = rawData.map((item) => ({
+        title: item.title,
+        url: `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`
+      }));
+      console.log(this.photos);
+
+    });
+  }
 }
