@@ -1,8 +1,22 @@
 <div style="position: relative">
   <h3 class="header">{{headerTxt}}</h3>
 </div>
+<div class="notify-box" style="
+                  display: flex;
+                  align-items: center; height: 60px;margin-top:15px;">
+
+  <div style="flex: 1;
+  margin: auto;
+                margin-right: 20px;">
+
+    <input (keyup)="searchImages()" placeholder=" Search For Images..." type="text" name="text"
+      [(ngModel)]="searchTerm" id="searchTerm" style="height: 30px;
+                        margin: auto;">
+  </div>
+
+</div>
 <div class="gallery-container">
   <div class="img-container" *ngFor="let photo of photos">
-    <img [src]="photo.url" alt={{photo.title}}/>
+    <img [src]="photo.url" alt={{photo.title}} />
   </div>
 </div>
