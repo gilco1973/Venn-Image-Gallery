@@ -14,10 +14,23 @@ export class GalleryComponent implements OnInit {
   currentPage: number = 1;
   searchTerm: string;
   photosPerPage: any;
+  savedSearches: any[] = [];
+  selectedSavedSearches: any[] = [];
   constructor(private imagesProvider: ImagesProviderService) { }
 
   ngOnInit() {
     this.searchImages();
+    this.savedSearches = JSON.parse(localStorage.getItem('searches')) || [];
+  }
+  onSavedSearchSelect($event){
+
+  }
+  saveSearch() {
+    if (!this.searchTerm || !this.searchTerm.length || this.savedSearches.includes(this.searchTerm)) {
+      return;
+    }
+    this.savedSearches.push(this.searchTerm);
+    localStorage.setItem('searches', JSON.stringify(this.savedSearches));
   }
   searchImages() {
     this.imagesProvider.getPhotos(this.searchTerm, this.currentPage).then((result: any) => {

@@ -10,6 +10,7 @@ import { RequestInterceptor } from './request-interceptor.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     ImagesNameFilterPipe,
   ],
   imports: [
+    NgMultiSelectDropDownModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     NgxSpinnerModule,
