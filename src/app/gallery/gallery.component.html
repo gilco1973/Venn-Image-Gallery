@@ -2,13 +2,20 @@
   <h3 class="header">{{headerTxt}}</h3>
 </div>
 <div class="input-box">
-  
-    <button class="btn" (click)="saveSearch()">Save Search</button>
-    <input (keyup)="searchImages()" placeholder="Search For Images..." type="text" name="text" [(ngModel)]="searchTerm"
-      id="searchTerm" class="search-box">
-    <ng-multiselect-dropdown class="multi-select" [placeholder]="'Choose saved searches...'" [data]="savedSearches"
-      [(ngModel)]="selectedSavedSearches" [settings]="dropdownSettings" (onSelect)="onSavedSearchSelect($event)">
-    </ng-multiselect-dropdown>
+  <button class="btn" (click)="saveSearch()">Save Search</button>
+  <input (keyup)="searchImages()" placeholder="Search For Images..." type="text" name="text" [(ngModel)]="searchTerm"
+    id="searchTerm" class="search-box">
+  <ng-multiselect-dropdown class="multi-select" [placeholder]="'Choose saved searches...'" [data]="savedSearches"
+    [(ngModel)]="selectedSavedSearches" [settings]="dropdownSettings" (onSelect)="onSavedSearchSelect($event)">
+  </ng-multiselect-dropdown>
+</div>
+<div class="input-box">
+  <button class="btn" (click)="applySelection()">Apply Searches Selection</button>
+  <mat-radio-group [(ngModel)]="selectedMultiSearchRelations">
+    <mat-radio-button class="relation" *ngFor="let relation of relations" [value]="relation.value">
+      {{relation.text}}
+    </mat-radio-button>
+  </mat-radio-group>
 </div>
 <div class="gallery-container">
   <div class="img-container" *ngFor="let photo of photos; let i=index">
