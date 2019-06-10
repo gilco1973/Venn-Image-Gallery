@@ -9,7 +9,7 @@
     [(ngModel)]="selectedSavedSearches" [settings]="dropdownSettings" (onSelect)="onSavedSearchSelect($event)">
   </ng-multiselect-dropdown>
 </div>
-<div class="input-box">
+<div class="input-box apply-saved-search">
   <button class="btn" (click)="applySelection()">Apply Searches Selection</button>
   <mat-radio-group [(ngModel)]="selectedMultiSearchRelations">
     <mat-radio-button class="relation" *ngFor="let relation of relations" [value]="relation.value">

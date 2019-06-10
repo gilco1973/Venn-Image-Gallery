@@ -39,11 +39,15 @@
     min-height: 59px;
     display: flex;
     flex-wrap: wrap;
+    
+}
+.apply-saved-search{
+    justify-content: center;
 }
 .btn{
     border: gray;
     border-width: 2px;
-    max-width: 10rem;
+    max-width: 20rem;
     min-width: 10rem;
     background: darkgray;
     height: 3rem;
